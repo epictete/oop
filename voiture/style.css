@@ -1,0 +1,20 @@
+body {
+  width: 50%;
+  height: 100%;
+  margin: 50px auto;
+}
+
+img {
+  max-width: 500px;
+  display: block;
+  margin: auto;
+}
+
+table {
+  margin: 20px auto;
+}
+
+tr,
+td {
+  text-align: center;
+}
