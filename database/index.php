@@ -3,6 +3,7 @@
 include_once 'external.php';
 include_once 'database.php';
 include_once 'user.php';
+include_once 'form.php';
 
 ?>
 
@@ -14,11 +15,24 @@ include_once 'user.php';
     <title>DataBase</title>
 </head>
 <body>
+
     <?php
 
-    $usr = new User('localhost', $user, $pass, 'becode');
-    echo $usr->getData();
+    $form = new Form($_POST);
+    echo $form->formStart('#', 'post');
+    echo $form->input('username');
+    echo $form->input('password');
+    echo $form->input('email');
+    echo $form->submit();
+    echo $form->formEnd();
+
+    $object = new User('localhost', $user, $pass, 'becode');
+    $object->setUsers($_POST['username'], $_POST['password'], $_POST['email']);
+    // $object->updateUsername('john', 'johnjohn');
+    // $object->updateEmail('john@mail.com', 'johnjohn@mail.com');
+    // $object->deleteUsers('john');
 
     ?>
+
 </body>
 </html>
